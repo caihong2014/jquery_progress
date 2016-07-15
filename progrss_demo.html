@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jquery progress demo</title>
+  <link rel="stylesheet" href="style/j_progress.css">
+</head>
+<body>
+  <ul class="progrss-box">
+    <!-- <li>
+      <span class="name"></span>
+      <span class="progress"><em></em></span>
+      <span class="num"></span>
+    </li> -->
+  </ul>
+</body>
+<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+<script>
+  $(function() {
+    var temp = '<li><span class="name"></span><span class="progress"><em></em></span><span class="num"></span></li>',
+    username = $(".name"),
+    progress = $(".progress em"),
+    number = $(".num"),
+    draw;
+    //画图
+    draw = function(name,percent,num) {
+      username.text(name);
+      progress.animate({width:percent + "%"},1000);
+      number.text(num);
+    };
+    //数据
+    var data = [
+      {
+        "name": "张一",
+        "progress": 90,
+        "num": 15
+      },
+      {
+        "name": "张二",
+        "progress": 50,
+        "num": 23
+      },
+      {
+        "name": "张三",
+        "progress": 20,
+        "num": 75
+      }
+    ];
+    // $.each(data, function(res) {
+    //   console.info(res.data)
+    //   list = {
+    //     name:data.name,
+    //     progress:data.progress,
+    //     num:data.num
+    //   }
+    //   temp += draw(list);
+    // });
+    for (var i=0; i<data.length; i++) {
+      var arr_name = data[i].name;
+      var arr_prog = data[i].progress;
+      var arr_num = data[i].num;
+    };
+    //传参
+
+    temp += new draw(arr_name,arr_prog,arr_num);
+    $(".progrss-box").html(temp);
+  });
+</script>
+</html>
