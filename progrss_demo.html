@@ -56,13 +56,17 @@
     //   temp += draw(list);
     // });
     for (var i=0; i<data.length; i++) {
-      var arr_name = data[i].name;
-      var arr_prog = data[i].progress;
-      var arr_num = data[i].num;
+      for (var j=0; j<temp[i].length; j++) {
+        console.info(data[i].name);
+        temp += draw(data[i].name,data[i].progress,data[i].num);
+      }
+      // var arr_name = data[i].name;
+      // var arr_prog = data[i].progress;
+      // var arr_num = data[i].num;
     };
     //传参
 
-    temp += new draw(arr_name,arr_prog,arr_num);
+    // temp += new draw(arr_name,arr_prog,arr_num);
     $(".progrss-box").html(temp);
   });
 </script>
